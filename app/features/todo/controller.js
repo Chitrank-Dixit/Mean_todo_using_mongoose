@@ -5,7 +5,7 @@ var app = angular.module('Harmonium', []);
 app.controller('ServicesCtrl',['$scope','$http', function($scope, $http) {
 	console.log("Hello from Services controller");
 	$scope.message = "Hello";
-
+	//$scope.serviceClient = {};
 	$scope.create = function() {
 		console.log($scope.serviceClient);
 		$http.post("/serviceClients", $scope.serviceClient).success(function(response) { $scope.all(); });
@@ -36,7 +36,7 @@ app.controller('ServicesCtrl',['$scope','$http', function($scope, $http) {
 	};
 	//get all
 	$scope.all = function() {
-	$http.get("/serviceClients").success($scope.renderServiceClients);
+		$http.get("/serviceClients").success($scope.renderServiceClients);
 	};
 
 	$scope.all();
